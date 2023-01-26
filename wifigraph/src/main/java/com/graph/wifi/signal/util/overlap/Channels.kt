@@ -36,7 +36,7 @@ object Channels {
         ChannelFreq(68,5340),
         ChannelFreq(96,5480),
         ChannelFreq(100,5500),
-        ChannelFreq(102,5480),
+        ChannelFreq(102,5510),
         ChannelFreq(104,5520),
         ChannelFreq(106,5530),
         ChannelFreq(108,5540),
@@ -79,7 +79,7 @@ object Channels {
         ChannelFreq(188,4940),
         ChannelFreq(189,4945),
         ChannelFreq(192,4960),
-        ChannelFreq(196,4980),
+        ChannelFreq(196,4980)
 
     )
 }

@@ -16,6 +16,7 @@ import com.graph.wifi.signal.util.ColorGenerator
 import com.graph.wifi.signal.util.SignalLevel
 import com.graph.wifi.signal.model.WiFiGraph
 import com.graph.wifi.signal.util.ChannelController.getActiveChannels
+import com.graph.wifi.signal.util.FrequencyToChannel
 import com.graph.wifi.signal.util.overlap.ChannelOverlap
 import com.graph.wifi.signal.util.overlap.Channels
 import kotlinx.coroutines.Dispatchers
@@ -103,7 +104,7 @@ class FirstFragment : Fragment() {
                     ),
                     WiFiGraph(
                         "FREEBOX",
-                        2,
+                        FrequencyToChannel.intChannel(2417),
                         Color.parseColor(colorGenerator.generateColor()), //"#33FFAA00"
                         fifthChannels,
                         SignalLevel.getSignalLevel(-59)
