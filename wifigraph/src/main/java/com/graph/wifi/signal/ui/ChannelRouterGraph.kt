@@ -37,8 +37,10 @@ class ChannelRouterGraph @JvmOverloads constructor(
     private var wifiList2 = emptyList<WiFiGraph>()
     private var channels = emptyList<Int>()
     private var _ssidWithColors = arrayListOf<SSIDWithColor>()
+    private var _colorsToPositions = mutableMapOf<Int,Int>()
 
     val ssidWithColors: List<SSIDWithColor> get() = _ssidWithColors
+    val colorsTopPositions: Map<Int,Int> get() = _colorsToPositions
 
     private var channelName: String = ""
     private var strokeWidth: Float
@@ -215,7 +217,7 @@ class ChannelRouterGraph @JvmOverloads constructor(
         ssidWithColors.clear()
         var currentPosition = 0
         for (i in wifiList2) {
-
+            _colorsToPositions[i.color] = currentPosition
             if(showOnlySelectedIndexes.isNotEmpty() && currentPosition !in showOnlySelectedIndexes){
                 currentPosition++
                 continue
@@ -364,7 +366,7 @@ class ChannelRouterGraph @JvmOverloads constructor(
             paint.textSize = textSize
             val rect = Rect()
             val text = channels[i].toString()
-            //kanallari ortalatmak icin bu
+            //center channel text
             paint.getTextBounds(text, 0, text.length, rect)
             canvas.drawText(
                 channels[i].toString(),
