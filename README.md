@@ -5,6 +5,8 @@ You can set your own color or you can generate random colors with ColorGenerator
 
 With the GetActiveChannels function, you can find the channel ranges by passing the Wi-Fi channel width type and channel frequency value.
 
+With the FrequencyToChannel function, you can find the channel by passing the Wi-Fi channelFrequency value.
+
 [![](https://jitpack.io/v/vidarrrr/Wi-Fi-Channel-Graph.svg)](https://jitpack.io/#vidarrrr/Wi-Fi-Channel-Graph/1.0.0)
 
 # Example Code 
@@ -62,7 +64,7 @@ With the GetActiveChannels function, you can find the channel ranges by passing 
                     ),
                     WiFiGraph(
                         "FREEBOX",
-                        2,
+			FrequencyToChannel.intChannel(2417),
                         Color.parseColor(colorGenerator.generateColor()), //"#33FFAA00"
                         fifthChannels,
                         SignalLevel.getSignalLevel(-59)
