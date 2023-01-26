@@ -40,7 +40,7 @@ class ChannelRouterGraph @JvmOverloads constructor(
     private var _colorsToPositions = mutableMapOf<Int,Int>()
 
     val ssidWithColors: List<SSIDWithColor> get() = _ssidWithColors
-    val colorsTopPositions: Map<Int,Int> get() = _colorsToPositions
+    val colorsToPositions: Map<Int,Int> get() = _colorsToPositions
 
     private var channelName: String = ""
     private var strokeWidth: Float
