@@ -164,7 +164,7 @@ allprojects {
  
  ```
  dependencies {
-	        implementation 'com.github.vidarrrr:Wi-Fi-Channel-Graph:1.0.0'
+	        implementation 'com.github.vidarrrr:Wi-Fi-Channel-Graph:1.0.1'
 	}
  ```
 
