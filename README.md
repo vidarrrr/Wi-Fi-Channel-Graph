@@ -1,6 +1,12 @@
 # Wi-Fi Channel Graph Android
 Wi-Fi Trapezoidal Channel Graphs Made with Kotlin
 
+You can set your own color or you can generate random colors with ColorGenerator.
+
+With the GetActiveChannels function, you can find the channel ranges by passing the Wi-Fi channel width type and channel frequency value.
+
+[![](https://jitpack.io/v/vidarrrr/Wi-Fi-Channel-Graph.svg)](https://jitpack.io/#vidarrrr/Wi-Fi-Channel-Graph/1.0.0)
+
 # Example Code 
 
 ```
@@ -141,6 +147,24 @@ Wi-Fi Trapezoidal Channel Graphs Made with Kotlin
 
 # Download
 
+Add it in your root build.gradle at the end of repositories:
+
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+ ```
+ 
+ Step 2. Add the dependency
+ 
+ ```
+ dependencies {
+	        implementation 'com.github.vidarrrr:Wi-Fi-Channel-Graph:1.0.0'
+	}
+ ```
 
 # License
 
