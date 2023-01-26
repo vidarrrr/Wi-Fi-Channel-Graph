@@ -134,10 +134,10 @@ Wi-Fi Trapezoidal Channel Graphs Made with Kotlin
 
 # ScreenShots
 
-![](.ScreenShots/first.png)
-![](.ScreenShots/second.png)
-![](.ScreenShots/third.png)
-![](.ScreenShots/fourth.png)
+![](./ScreenShots/first.png)
+![](./ScreenShots/second.png)
+![](./ScreenShots/third.png)
+![](./ScreenShots/fourth.png)
 
 # Download
 
