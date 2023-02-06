@@ -60,9 +60,9 @@ object ChannelController {
             ScanResult.CHANNEL_WIDTH_160MHZ -> {
                 160
             }
-            ScanResult.CHANNEL_WIDTH_320MHZ -> {
+            /*ScanResult.CHANNEL_WIDTH_320MHZ -> {
                 320
-            }
+            }*/
             else -> {
                 -1
             }
