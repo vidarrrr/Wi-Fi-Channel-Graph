@@ -5,5 +5,6 @@ data class WiFiGraph(
     val channelPeak: Int,
     val color: Int,
     val channels: List<Int>,
-    val signalStrength: Float
+    val signalStrength: Float,
+    val channelName: String
 )

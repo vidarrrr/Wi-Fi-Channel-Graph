@@ -22,11 +22,15 @@ object ChannelController {
             val channelWidthAsInt = getRange(channelWidth)
             val startIndex = if (channelFrequency1 < 2500) {
                 0
-            } else {
+            } else if (channelFrequency1 < 5955) {
                 13
+            } else {
+                77
             }
             val endIndex = if (channelFrequency1 < 2500) {
                 13
+            } else if (channelFrequency1 < 5955) {
+                77
             } else {
                 Channels.list.size - 1
             }
@@ -66,6 +70,16 @@ object ChannelController {
             else -> {
                 -1
             }
+        }
+    }
+
+    fun getChannelName(channelFrequency1: Int): String {
+        return if (channelFrequency1 >= 5955) {
+            ChannelConstants._6ghz
+        } else if (channelFrequency1 >= 2484) {
+            ChannelConstants._5ghz
+        } else {
+            ChannelConstants._2ghz
         }
     }
 }

@@ -189,6 +189,7 @@ class ChannelRouterGraph @JvmOverloads constructor(
         canvas: Canvas,
         height: Float,
         width: Float,
+        channelName: String,
         wifiList2: List<WiFiGraph>,
         ssidWithColors: ArrayList<SSIDWithColor>,
         channels: List<Int>,
@@ -217,6 +218,7 @@ class ChannelRouterGraph @JvmOverloads constructor(
         ssidWithColors.clear()
         var currentPosition = 0
         for (i in wifiList2) {
+            if(i.channelName != channelName) continue
             _colorsToPositions[i.color] = currentPosition
             if(showOnlySelectedIndexes.isNotEmpty() && currentPosition !in showOnlySelectedIndexes){
                 currentPosition++
@@ -442,6 +444,7 @@ class ChannelRouterGraph @JvmOverloads constructor(
                     it,
                     height.toFloat(),
                     width.toFloat(),
+                    channelName,
                     wifiList2,
                     _ssidWithColors,
                     channels,

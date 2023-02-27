@@ -47,8 +47,8 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5GHz"
-            android:id="@+id/five_ghz_1"/>
+            android:text="6GHz"
+            android:id="@+id/six_ghz"/>
     </RadioGroup>
     <!--<Button
         android:id="@+id/button_first"

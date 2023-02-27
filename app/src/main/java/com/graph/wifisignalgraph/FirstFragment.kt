@@ -11,12 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import com.graph.wifisignalgraph.databinding.FragmentFirstBinding
-import com.graph.wifi.signal.util.ChannelConstants
-import com.graph.wifi.signal.util.ColorGenerator
-import com.graph.wifi.signal.util.SignalLevel
 import com.graph.wifi.signal.model.WiFiGraph
+import com.graph.wifi.signal.util.*
 import com.graph.wifi.signal.util.ChannelController.getActiveChannels
-import com.graph.wifi.signal.util.FrequencyToChannel
 import com.graph.wifi.signal.util.overlap.ChannelOverlap
 import com.graph.wifi.signal.util.overlap.Channels
 import kotlinx.coroutines.Dispatchers
@@ -55,7 +52,7 @@ class FirstFragment : Fragment() {
         //https://medium.com/@anujguptawork/how-to-create-your-own-android-library-and-publish-it-750e0f7481bf
         MainScope().launch {
             val colorGenerator = ColorGenerator()
-            val firstChannels = getActiveChannels(ScanResult.CHANNEL_WIDTH_40MHZ,5160)
+            val firstChannels = getActiveChannels(ScanResult.CHANNEL_WIDTH_40MHZ,5955)
             val secondChannels = getActiveChannels(ScanResult.CHANNEL_WIDTH_80MHZ_PLUS_MHZ,5250)
             val secondChannels2 = getActiveChannels(ScanResult.CHANNEL_WIDTH_80MHZ_PLUS_MHZ,5200)
             val thirdChannels = getActiveChannels(ScanResult.CHANNEL_WIDTH_20MHZ,5180)
@@ -69,17 +66,19 @@ class FirstFragment : Fragment() {
                 listOf(
                     WiFiGraph(
                         "FREEBOX",
-                        32,
+                        1,
                         Color.parseColor(colorGenerator.generateColor()), //"#33FFAA00"
                         firstChannels,//listOf(30, 32, 34),
-                        SignalLevel.getSignalLevel(-59)
+                        SignalLevel.getSignalLevel(-59),
+                        ChannelController.getChannelName(5955)
                     ),
                     WiFiGraph(
                         "FREEBOX-A",
                         50,
                         Color.parseColor("#33FFFF00"),
                         secondChannels,//listOf(42, 44, 46, 48, 50, 52, 54,56),
-                        SignalLevel.getSignalLevel(-49)
+                        SignalLevel.getSignalLevel(-49),
+                        ChannelConstants._5ghz
                     ),
                     /*WiFiGraph(
                         "FREEBOX-A2",
@@ -93,38 +92,43 @@ class FirstFragment : Fragment() {
                         36,
                         Color.parseColor(colorGenerator.generateColor()),
                         thirdChannels,//listOf(34, 36, 38),
-                        SignalLevel.getSignalLevel(-39)
+                        SignalLevel.getSignalLevel(-39),
+                        ChannelConstants._5ghz
                     ),
                     WiFiGraph(
                         "FREEBOX-C",
                         52,
                         Color.parseColor(colorGenerator.generateColor()),
                         fourthChannels,//listOf(46, 48, 50, 52, 54,56),
-                        SignalLevel.getSignalLevel(-49)
+                        SignalLevel.getSignalLevel(-49),
+                        ChannelConstants._5ghz
                     ),
                     WiFiGraph(
                         "FREEBOX",
                         FrequencyToChannel.intChannel(2417),
                         Color.parseColor(colorGenerator.generateColor()), //"#33FFAA00"
                         fifthChannels,
-                        SignalLevel.getSignalLevel(-59)
+                        SignalLevel.getSignalLevel(-59),
+                        ChannelConstants._2ghz
                     ),
                     WiFiGraph(
                         "FREEBOX",
                         6,
                         Color.parseColor("#33FFFF00"),
                         sixthChannels,
-                        SignalLevel.getSignalLevel(-49)
+                        SignalLevel.getSignalLevel(-49),
+                        ChannelConstants._2ghz
                     ),
                     WiFiGraph(
                         "FREEBOX",
                         6,
                         Color.parseColor(colorGenerator.generateColor()),
                         seventhChannels,
-                        SignalLevel.getSignalLevel(-39)
+                        SignalLevel.getSignalLevel(-39),
+                        ChannelConstants._2ghz
                     )
                 ),
-                ChannelConstants._2ghzChannels
+                ChannelConstants._6ghzChannels1
             )
 
             binding.cg.setOnSSIDWithColor {
@@ -166,8 +170,8 @@ class FirstFragment : Fragment() {
                         binding.cg.setChannelName(ChannelConstants._5ghz)
                     }
                     else -> {
-                        binding.cg.setChannels(ChannelConstants._5ghzChannels2)
-                        binding.cg.setChannelName(ChannelConstants._5ghz)
+                        binding.cg.setChannels(ChannelConstants._6ghzChannels1)
+                        binding.cg.setChannelName(ChannelConstants._6ghz)
                     }
                 }
 
