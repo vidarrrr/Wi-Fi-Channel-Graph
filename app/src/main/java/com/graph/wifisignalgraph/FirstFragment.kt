@@ -80,6 +80,30 @@ class FirstFragment : Fragment() {
                         SignalLevel.getSignalLevel(-49),
                         ChannelConstants._5ghz
                     ),
+                    WiFiGraph(
+                        "FREEBOX-A",
+                        32,
+                        Color.parseColor("#33FFFF00"),
+                        listOf(32),//listOf(42, 44, 46, 48, 50, 52, 54,56),
+                        SignalLevel.getSignalLevel(-49),
+                        ChannelConstants._5ghz
+                    ),
+                    WiFiGraph(
+                        "FREEBOX-A",
+                        34,
+                        Color.parseColor("#33FFFF00"),
+                        listOf(34,36),//listOf(42, 44, 46, 48, 50, 52, 54,56),
+                        SignalLevel.getSignalLevel(-49),
+                        ChannelConstants._5ghz
+                    ),
+                    WiFiGraph(
+                        "FREEBOX-A",
+                        34,
+                        Color.parseColor("#33FFFF00"),
+                        emptyList(),//listOf(42, 44, 46, 48, 50, 52, 54,56),
+                        SignalLevel.getSignalLevel(-49),
+                        ChannelConstants._5ghz
+                    ),
                     /*WiFiGraph(
                         "FREEBOX-A2",
                         50,

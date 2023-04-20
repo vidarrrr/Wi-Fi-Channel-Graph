@@ -219,6 +219,7 @@ class ChannelRouterGraph @JvmOverloads constructor(
         var currentPosition = 0
         for (i in wifiList2) {
             if(i.channelName != channelName) continue
+            if(i.channels.isEmpty()) continue
             _colorsToPositions[i.color] = currentPosition
             if(showOnlySelectedIndexes.isNotEmpty() && currentPosition !in showOnlySelectedIndexes){
                 currentPosition++
@@ -226,7 +227,7 @@ class ChannelRouterGraph @JvmOverloads constructor(
             }
             val startPeakPosition = if (i.channels.size == 3) {
                 i.channelPeak
-            } else {
+            } else if(i.channels.size > 3){
                 //channels 36 38 ...
                 //i.channels 32 34 36 .. 42 44 46 48
                 var position = 1
@@ -235,16 +236,30 @@ class ChannelRouterGraph @JvmOverloads constructor(
                 }
                 i.channels[position]
                 //i.channels[1]
+            }else{
+                i.channels.first()
+                /*if (i.channels.isNotEmpty()){
+                    i.channels.first()
+                }else{
+                    0
+                }*/
             }
             val lastPeakPosition = if (i.channels.size == 3) {
                 i.channelPeak
-            } else {
+            } else if(i.channels.size > 3){
                 var position = i.channels.size - 2
                 while(channels.indexOf(i.channels[position])==-1 && i.channels[position] >= startPeakPosition){//i.channels[position]>=i.channelPeak){
                     position--
                 }
                 i.channels[position]
                 //i.channels[i.channels.size - 2]
+            }else{
+                i.channels.last()
+                /*if(i.channels.isNotEmpty()){
+                    i.channels.last()
+                }else{
+                    0
+                }*/
             }
             //if (channels.indexOf(i.channelPeak) == -1) continue
             var channelStartIndex = channels.indexOf(i.channels.first()) + 1
