@@ -39,49 +39,56 @@ With the FrequencyToChannel function, you can find the channel by passing the Wi
                         32,
                         Color.parseColor(colorGenerator.generateColor()), //"#33FFAA00"
                         firstChannels,//listOf(30, 32, 34),
-                        SignalLevel.getSignalLevel(-59)
+                        SignalLevel.getSignalLevel(-59),
+			ChannelController.getChannelName(5160)
                     ),
                     WiFiGraph(
                         "FREEBOX-A",
                         50,
                         Color.parseColor("#33FFFF00"),
                         secondChannels,//listOf(42, 44, 46, 48, 50, 52, 54,56),
-                        SignalLevel.getSignalLevel(-49)
+                        SignalLevel.getSignalLevel(-49),
+			ChannelController.getChannelName(5250)
                     ),
                     WiFiGraph(
                         "FREEBOX-B",
                         36,
                         Color.parseColor(colorGenerator.generateColor()),
                         thirdChannels,//listOf(34, 36, 38),
-                        SignalLevel.getSignalLevel(-39)
+                        SignalLevel.getSignalLevel(-39),
+			ChannelController.getChannelName(5180)
                     ),
                     WiFiGraph(
                         "FREEBOX-C",
                         52,
                         Color.parseColor(colorGenerator.generateColor()),
                         fourthChannels,//listOf(46, 48, 50, 52, 54,56),
-                        SignalLevel.getSignalLevel(-49)
+                        SignalLevel.getSignalLevel(-49),
+			ChannelController.getChannelName(5260)
                     ),
                     WiFiGraph(
                         "FREEBOX",
 			FrequencyToChannel.intChannel(2417),
                         Color.parseColor(colorGenerator.generateColor()), //"#33FFAA00"
                         fifthChannels,
-                        SignalLevel.getSignalLevel(-59)
+                        SignalLevel.getSignalLevel(-59),
+			ChannelController.getChannelName(2417)
                     ),
                     WiFiGraph(
                         "FREEBOX",
                         6,
                         Color.parseColor("#33FFFF00"),
                         sixthChannels,
-                        SignalLevel.getSignalLevel(-49)
+                        SignalLevel.getSignalLevel(-49),
+			ChannelController.getChannelName(2447)
                     ),
                     WiFiGraph(
                         "FREEBOX",
                         6,
                         Color.parseColor(colorGenerator.generateColor()),
                         seventhChannels,
-                        SignalLevel.getSignalLevel(-39)
+                        SignalLevel.getSignalLevel(-39),
+			ChannelController.getChannelName(2447)
                     )
                 ),
                 ChannelConstants._2ghzChannels
@@ -125,8 +132,8 @@ With the FrequencyToChannel function, you can find the channel by passing the Wi
                         binding.cg.setChannelName(ChannelConstants._5ghz)
                     }
                     else -> {
-                        binding.cg.setChannels(ChannelConstants._5ghzChannels2)
-                        binding.cg.setChannelName(ChannelConstants._5ghz)
+                        binding.cg.setChannels(ChannelConstants._6ghzChannels1)
+                        binding.cg.setChannelName(ChannelConstants._6ghz)
                     }
                 }
 
